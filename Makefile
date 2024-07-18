@@ -93,6 +93,7 @@ README.txt: README.md
 
 youtube-dl.1: README.md
 	$(PYTHON) devscripts/prepare_manpage.py youtube-dl.1.temp.md
+	sed -e 's/--/\\-\\-/g' -i youtube-dl.1.temp.md
 	pandoc -s -f $(MARKDOWN) -t man youtube-dl.1.temp.md -o youtube-dl.1
 	rm -f youtube-dl.1.temp.md
 
